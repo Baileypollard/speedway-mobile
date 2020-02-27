@@ -40,7 +40,6 @@ const rrfProps = {
 export default function App() {
   return (
     <NavigationContainer>
-
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
           <Main/>

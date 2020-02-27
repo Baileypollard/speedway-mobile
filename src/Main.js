@@ -9,7 +9,7 @@ import {
     LayoutAnimation
 } from "react-native";
 
-import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import Dashboard from './containers/dashboard'
 
 import BottomNavigation from 'react-native-material-bottom-navigation'
@@ -27,16 +27,15 @@ const Main = createBottomTabNavigator(
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
-        let IconComponent = Ionicons;
         let iconName;
         if (routeName === 'Dashboard') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+          iconName = `car`;
         } else if (routeName === 'Schedule') {
-          iconName = `ios-checkmark-circle${focused ? '' : '-outline'}`;
+          iconName = `calendar`;
         }  else if (routeName === 'Tickets') {
-          iconName = `ios-checkmark-circle${focused ? '' : '-outline'}`;
+          iconName = `ticket`;
         } 
-        return <IconComponent name={iconName} size={25} color={tintColor} />;
+        return <FontAwesome name={iconName} size={25} color={tintColor} />;
       },
     }),
     tabBarOptions: {
