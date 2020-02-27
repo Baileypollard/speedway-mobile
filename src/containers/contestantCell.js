@@ -28,7 +28,10 @@ class ContestantCell extends Component {
                             <Text style={styles.contestantName}>{this.props.contestant.name}</Text>
                             <Text style={styles.contestantNumber}>#{this.props.contestant.carNumber}</Text>
                         </View>
-                        <Text style={styles.contestantName}>{this.props.contestant.lapsCompleted}</Text>
+                        <View style={styles.contestantLapsCompletedContainer}>
+                            <Text style={styles.contestantPosition}>Laps</Text>
+                            <Text style={{fontSize:24, alignSelf:'center'}}>{this.props.contestant.lapsCompleted}</Text>
+                        </View>
                     </View>        
                 </Card>
     }
@@ -49,6 +52,9 @@ const styles = StyleSheet.create({
         padding:10,
         flexDirection:'column',
         flex:2
+    },
+    contestantLapsCompletedContainer: {
+        flexDirection:'column'
     },
     contestantName:{
         fontSize:24,

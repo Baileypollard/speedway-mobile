@@ -37,10 +37,10 @@ export default function App() {
   return (
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-      <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor="black" barStyle="dark-content" />
-        <Main/>
-      </SafeAreaView>
+        <SafeAreaView style={styles.container}>
+          <StatusBar backgroundColor="black" barStyle="dark-content" />
+          <Main/>
+        </SafeAreaView>
       </ReactReduxFirebaseProvider>
     </Provider>
   );

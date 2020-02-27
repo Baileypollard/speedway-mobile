@@ -8,70 +8,34 @@ import {
     SafeAreaView,
     LayoutAnimation
 } from "react-native";
-import {firestoreConnect} from 'react-redux-firebase'
-import {connect} from 'react-redux'
-import {compose} from 'redux'
-import ContestantCell from '../src/containers/contestantCell'
+
+import Dashboard from './containers/dashboard'
+import BottomNavigation from 'react-native-material-bottom-navigation'
+import { createAppContainer } from "react-navigation";
+
 
 class Main extends Component {
-
-    componentWillUpdate() {
-      LayoutAnimation.linear();
-    }
 
     render() {
         return (
             <View style={styles.container}>
-                <FlatList data={this.props.contestants}
-                      renderItem = {({item}) => 
-                      <ContestantCell key={item.id} contestant={item}/>
-                    }
-                />
+              <Dashboard/>
             </View>
         );
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-const mapStateToProps = (state) => {
-  var contestants = state.firestore.ordered['racers'] !== undefined ? state.firestore.ordered['racers'] : [];
-  var sortedContestants = contestants.slice().sort((a,b) => { return a.position - b.position});      
-  return {
-    contestants: sortedContestants,
-  }
-}
-
-export default compose(
-  firestoreConnect([
-    {
-      collection:'races',
-      doc:'race-2019-01-01',
-      storeAs:'racers',
-      subcollections: [ 
-        {
-          collection:'contestants',
-        }
-      ],
-    }
-  ]),
-  connect(mapStateToProps, mapDispatchToProps),
-)(Main)
-
+export default Main
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      flexDirection: 'row',
-      padding: 10,
-      marginTop: 8,
-      marginBottom: 8,
-      borderRadius: 5,
-      backgroundColor: 'white',
-      elevation: 2,
-    },
-  });
-  
+  container: {
+    flex: 1,
+    flexDirection:'row',
+    padding: 10,
+    marginTop: 8,
+    marginBottom: 8,
+    borderRadius: 5,
+    backgroundColor: 'white',
+    elevation: 2,
+  },
+});
