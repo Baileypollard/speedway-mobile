@@ -5,20 +5,27 @@ import {
     StyleSheet,
     FlatList,
     Dimensions,
-    SafeAreaView
+    SafeAreaView,
+    LayoutAnimation
 } from "react-native";
 import {firestoreConnect} from 'react-redux-firebase'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
+import ContestantCell from '../src/containers/contestantCell'
 
 class Main extends Component {
+
+    componentWillUpdate() {
+      LayoutAnimation.linear();
+    }
+
     render() {
-      console.log(this.props.contestants)
         return (
             <View style={styles.container}>
                 <FlatList data={this.props.contestants}
-                    renderItem={({item}) => 
-                    <Text style={styles.item}>{item.name}</Text>}
+                      renderItem = {({item}) => 
+                      <ContestantCell key={item.id} contestant={item}/>
+                    }
                 />
             </View>
         );
@@ -57,16 +64,14 @@ export default compose(
 
 const styles = StyleSheet.create({
     container: {
-      marginTop:0,
-    },
-    item: {
-      backgroundColor: '#f9c2ff',
-      padding: 20,
-      marginVertical: 8,
-      width: (Dimensions.get('window').width)
-    },
-    title: {
-      fontSize: 32,
+      flex: 1,
+      flexDirection: 'row',
+      padding: 10,
+      marginTop: 8,
+      marginBottom: 8,
+      borderRadius: 5,
+      backgroundColor: 'white',
+      elevation: 2,
     },
   });
   
