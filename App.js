@@ -1,3 +1,6 @@
+import 'react-native-gesture-handler';
+
+
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar, SafeAreaView } from 'react-native';
 import Main from './src/Main'
@@ -8,6 +11,7 @@ import firebase from '@react-native-firebase/app'
 import rootReducer from './src/reducers/index'
 import {config} from './src/config'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
+import {NavigationContainer} from '@react-navigation/native';
 
 import '@react-native-firebase/auth'
 import '@react-native-firebase/firestore'
@@ -35,14 +39,15 @@ const rrfProps = {
 
 export default function App() {
   return (
+    <NavigationContainer>
+
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-        <SafeAreaView style={styles.container}>
-          <StatusBar backgroundColor="black" barStyle="dark-content" />
           <Main/>
-        </SafeAreaView>
       </ReactReduxFirebaseProvider>
     </Provider>
+    </NavigationContainer>
+
   );
 }
 
