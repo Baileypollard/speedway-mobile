@@ -12,6 +12,7 @@ import rootReducer from './src/reducers/index'
 import {config} from './src/config'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import {NavigationContainer} from '@react-navigation/native';
+import { Appbar } from 'react-native-paper';
 
 import '@react-native-firebase/auth'
 import '@react-native-firebase/firestore'
@@ -42,7 +43,10 @@ export default function App() {
     <NavigationContainer>
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-          <Main/>
+        <Appbar.Header style={{backgroundColor:'black'}}>
+          <Appbar.Content title="Looney Speedway"/>
+        </Appbar.Header>
+        <Main/>
       </ReactReduxFirebaseProvider>
     </Provider>
     </NavigationContainer>
@@ -57,4 +61,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  appBar: { 
+
+  }
 });
