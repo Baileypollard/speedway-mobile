@@ -44,7 +44,7 @@ export default function App() {
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
         <Appbar.Header style={{backgroundColor:'black'}}>
-          <Appbar.Content title="Looney Speedway"/>
+          <Appbar.Content titleStyle={{fontSize:24}} title="Looney Speedway"/>
         </Appbar.Header>
         <Main/>
       </ReactReduxFirebaseProvider>

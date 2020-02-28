@@ -9,12 +9,12 @@ import {
     LayoutAnimation
 } from "react-native";
 
-import ContestantCell from '../containers/contestantCell'
+import ContestantCell from './contestantCell'
 import {firestoreConnect} from 'react-redux-firebase'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 
-class Dashboard extends Component {
+class DashboardList extends Component {
     
     componentWillUpdate() {
         LayoutAnimation.linear();
@@ -59,10 +59,10 @@ const mapDispatchToProps = (dispatch) => {
   }
   
   export default compose(
-    firestoreConnect([
+    firestoreConnect((props) => [
       {
         collection:'races',
-        doc:'race-2019-01-01',
+        doc:props.race.id,
         storeAs:'racers',
         subcollections: [ 
           {
@@ -72,5 +72,5 @@ const mapDispatchToProps = (dispatch) => {
       }
     ]),
     connect(mapStateToProps, mapDispatchToProps),
-  )(Dashboard)
+  )(DashboardList)
   

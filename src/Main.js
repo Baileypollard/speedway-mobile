@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 import { FontAwesome } from '@expo/vector-icons';
-import Dashboard from './containers/dashboard'
+import Dashboard from './views/dashboard'
 
 import BottomNavigation from 'react-native-material-bottom-navigation'
 import { createAppContainer } from "react-navigation";
@@ -46,27 +46,3 @@ const Main = createBottomTabNavigator(
 );
 
 export default createAppContainer(Main);
-
-// class Main extends Component {
-
-//     render() {
-//         return (
-//             <View style={styles.container}>
-//               <Dashboard/>
-//             </View>
-//         );
-//     }
-// }
-
-// export default Main
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     flexDirection:'row',
-//     marginBottom: 8,
-//     borderRadius: 5,
-//     backgroundColor: 'white',
-//     elevation: 2,
-//   },
-// });
