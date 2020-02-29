@@ -5,26 +5,37 @@ import React from 'react';
 import { StyleSheet, Text, View, StatusBar, SafeAreaView } from 'react-native';
 import Main from './src/Main'
 import {Provider} from 'react-redux'
-import {createStore} from 'redux'
+import {createStore, applyMiddleware, combineReducers} from 'redux'
 import { createFirestoreInstance } from 'redux-firestore' 
 import firebase from '@react-native-firebase/app'
-import rootReducer from './src/reducers/index'
+
 import {config} from './src/config'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import {NavigationContainer} from '@react-navigation/native';
 import { Appbar } from 'react-native-paper';
-
+import thunk from 'redux-thunk';
 import '@react-native-firebase/auth'
 import '@react-native-firebase/firestore'
+import '@react-native-firebase/storage'
 
-firebase.initializeApp(config)
-firebase.firestore()
+import { firestoreReducer } from 'redux-firestore'
+import  contestantImageReducer  from './src/reducers/contestantImageReducer'
 
-const initialState = window.__INITIAL_STATE__ || {
 
+if (!firebase.apps.length) {
+  firebase.initializeApp(config)
+  firebase.firestore()
+  firebase.storage()
 }
 
-const store = createStore(rootReducer, initialState)
+const rootReducer = combineReducers({
+  contestantImages:contestantImageReducer,
+  firestore:firestoreReducer,
+});
+
+const store = createStore(
+  rootReducer, 
+  applyMiddleware(thunk))
 
 const rrfConfig = {
   userProfile: 'users',
@@ -39,6 +50,7 @@ const rrfProps = {
 }
 
 export default function App() {
+  console.log(store)
   return (
     <NavigationContainer>
     <Provider store={store}>
@@ -60,8 +72,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  appBar: { 
-
   }
 });

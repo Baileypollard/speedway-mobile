@@ -17,8 +17,7 @@ import DasboardList from '../containers/dashboardList'
 class Dashboard extends Component {
 
     render() {
-        console.log(this.props.race)
-        if (this.props.race !== undefined) {
+        if (this.props.race != undefined) {
             return (
                 <View style={styles.container}>
                   <DasboardList race={this.props.race}/>
@@ -37,21 +36,11 @@ class Dashboard extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    padding: 10,
-    marginTop: 8,
-    marginBottom: 8,
-    borderRadius: 5,
+    flexDirection: 'column',
     backgroundColor: 'white',
-    elevation: 2,
   },
 });
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-  }
-  
   const mapStateToProps = (state) => {
     const race = state.firestore.ordered.race 
     && state.firestore.ordered.race[0];
@@ -71,6 +60,6 @@ const mapDispatchToProps = (dispatch) => {
             ]
         }
     ]),
-    connect(mapStateToProps, mapDispatchToProps),
+    connect(mapStateToProps, null),
   )(Dashboard)
   

@@ -8,22 +8,18 @@ import {
     FlatList,
     Dimensions,
     SafeAreaView,
+    Image
 } from "react-native";
 
 
 class ContestantCell extends Component {
-
-    constructor(props) {
-        super(props)
-        var contestant = props.contestant;
-    }
-
     render() {
         return <Card>
                     <View style={styles.cardContainer}>
                         <View style={styles.contestantPositionContainer}>
                             <Text style={styles.contestantPosition}>{this.props.contestant.position}</Text>
                         </View>
+                        <Image style={{width: 50, height: 70}} source={{uri:this.props.imageUrl}}/>
                         <View style={styles.contestantNameContainer}>
                             <Text style={styles.contestantName}>{this.props.contestant.name}</Text>
                             <Text style={styles.contestantNumber}>#{this.props.contestant.carNumber}</Text>
