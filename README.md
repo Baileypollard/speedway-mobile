@@ -10,3 +10,6 @@ This project is ongoing as of March 2nd 2020, and will continue being my persona
 
 
 The web panel can be found here: https://github.com/Baileypollard/speedway-admin
+
+
+![](name-of-giphy.gif)
