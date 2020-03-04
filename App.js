@@ -50,7 +50,6 @@ const rrfProps = {
 }
 
 export default function App() {
-  console.log(store)
   return (
     <NavigationContainer>
     <Provider store={store}>

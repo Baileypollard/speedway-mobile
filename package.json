@@ -46,9 +46,5 @@
     "react-test-renderer": "~16.9.0",
     "babel-preset-expo": "~8.0.0"
   },
-  "engines":{
-    "npm": "6.13.2",
-    "node": "13.3.0"
-  },
   "private": true
 }
