@@ -6,11 +6,13 @@ import {
     FlatList,
     Dimensions,
     SafeAreaView,
-    LayoutAnimation
+    LayoutAnimation,
+    Linking
 } from "react-native";
 
 import { FontAwesome } from '@expo/vector-icons';
 import Dashboard from './views/dashboard'
+import Tickets from './views/tickets'
 
 import BottomNavigation from 'react-native-material-bottom-navigation'
 import { createAppContainer } from "react-navigation";
@@ -21,7 +23,7 @@ const Main = createBottomTabNavigator(
   {
     Dashboard: { screen: Dashboard },
     Schedule: { screen: Dashboard },
-    Tickets: { screen: Dashboard },
+    Tickets: { screen: Tickets },
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({

@@ -47,8 +47,8 @@ target 'speedway' do
   pod 'RNFBAuth', :path => '../node_modules/@react-native-firebase/auth'
   pod 'RNFBFirestore', :path => '../node_modules/@react-native-firebase/firestore'
   pod 'RNFBStorage', :path => '../node_modules/@react-native-firebase/storage'
-
   pod 'Firebase'
-  # Automatically detect installed unimodules
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview/'
   use_unimodules!
+
 end
