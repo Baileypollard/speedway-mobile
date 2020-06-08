@@ -35,7 +35,7 @@ class ScheduleList extends Component {
                 <FlatList
                       ListHeaderComponent={
                         <View style={styles.raceInformationContainer}>
-                          <Text>Up coming events</Text>
+                          <Text style={styles.titleText}>Upcoming 2020 Events</Text>
                         </View>
                       } 
                       data={this.props.races}
@@ -48,6 +48,9 @@ class ScheduleList extends Component {
     }
 }
 const styles = StyleSheet.create({
+  titleText:{
+    fontSize:27
+  },
   container: {
     flex: 1,
     flexDirection: 'row',
@@ -63,7 +66,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginLeft:15,
     marginRight:15,
-    borderColor:'black',
     borderWidth:1,
     borderRadius: 2,
   }
@@ -71,7 +73,6 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // getImageUrlForContestants: (contestants) => dispatch(getImageURLForContestants(contestants))
   }
 }
 
