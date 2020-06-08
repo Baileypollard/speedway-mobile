@@ -13,7 +13,7 @@ import {
 import { FontAwesome } from '@expo/vector-icons';
 import Dashboard from './views/dashboard'
 import Tickets from './views/tickets'
-
+import Schedule from './views/schedule'
 import BottomNavigation from 'react-native-material-bottom-navigation'
 import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from 'react-navigation-tabs'
@@ -22,7 +22,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 const Main = createBottomTabNavigator(
   {
     Dashboard: { screen: Dashboard },
-    Schedule: { screen: Dashboard },
+    Schedule: { screen: Schedule },
     Tickets: { screen: Tickets },
   },
   {
